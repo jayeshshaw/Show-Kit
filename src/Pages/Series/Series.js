@@ -13,9 +13,12 @@ const Series = () => {
   const [numOfPages, setNumOfPages] = useState();
   const genreforURL = useGenre(selectedGenres);
 
+  
+  const apiKey = "f8fc5c2c46b8315478534badb0584a5d";
+
   const fetchSeries = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
+      `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);

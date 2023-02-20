@@ -31,9 +31,11 @@ const Search = () => {
 
   const fetchSearch = async () => {
     try {
+      
+    const apiKey = "f8fc5c2c46b8315478534badb0584a5d";
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
-          process.env.REACT_APP_API_KEY
+          apiKey
         }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
       );
       setContent(data.results);
