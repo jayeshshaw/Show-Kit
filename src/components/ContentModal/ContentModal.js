@@ -13,19 +13,12 @@ import "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Carousel from "../Carousel/Carousel";
-import ListIcon from "@material-ui/icons/List";
-
-
 
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  btn :{
-    margin: "10px",
-    width: "45%",
   },
   paper: {
     width: "90%",
@@ -39,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal({  children,media_type, id }) {
-  
-  // const { Mylist, setMylist } = MylistState();
+export default function TransitionsModal({ children, media_type, id }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
@@ -143,34 +134,8 @@ export default function TransitionsModal({  children,media_type, id }) {
                   <div>
                     <Carousel id={id} media_type={media_type} />
                   </div>
-                  <div>
-
-                  {/* {Mylist.includes(content) ? (*/}
 
                   <Button
-                  className={classes.btn}
-                  variant="contained"
-                  startIcon={<ListIcon />}
-                  color="primary"
-                  target="__blank"
-                  >
-                    Add to Watchlist
-                    </Button>
-                  {/*  ):
-                  (
-                    <Button
-                  className={classes.btn}
-                  variant="contained"
-                  startIcon={<ListIcon />}
-                  color="secondary"
-                  target="__blank"
-                  >
-                    Remove from Watchlist
-                    </Button>
-                  )} */}
-
-                  <Button
-                  className={classes.btn}
                     variant="contained"
                     startIcon={<YouTubeIcon />}
                     color="secondary"
@@ -179,7 +144,6 @@ export default function TransitionsModal({  children,media_type, id }) {
                   >
                     Watch the Trailer
                   </Button>
-                  </div>
                 </div>
               </div>
             </div>

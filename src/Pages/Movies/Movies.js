@@ -5,7 +5,6 @@ import SingleContent from "../../components/SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 
-
 const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);

@@ -29,10 +29,8 @@ const Search = () => {
     },
   });
 
-  const fetchSearch = async (e) => {
+  const fetchSearch = async () => {
     try {
-      
-    // console.log(searchText + "," + type);
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
           process.env.REACT_APP_API_KEY
@@ -40,32 +38,10 @@ const Search = () => {
       );
       setContent(data.results);
       setNumOfPages(data.total_pages);
+      // console.log(data);
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const onChange = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-    
-    // console.log(searchText + " " + type);
-
-    fetch(
-      `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
-          process.env.REACT_APP_API_KEY
-        }&language=en-US&query=${e.target.value}&page=${page}&include_adult=false`
-      )
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.errors) {
-          setContent(data.results);
-          setNumOfPages(data.total_pages);
-        } else {
-          setContent([]);
-          setNumOfPages(0);
-        }
-      });
   };
 
   useEffect(() => {
@@ -83,7 +59,7 @@ const Search = () => {
             className="searchBox"
             label="Search"
             variant="filled"
-            onChange={onChange}
+            onChange={(e) => setSearchText(e.target.value)}
           />
           <Button
             onClick={fetchSearch}
@@ -92,7 +68,6 @@ const Search = () => {
           >
             <SearchIcon fontSize="large" />
           </Button>
-
         </div>
         <Tabs
           value={type}
