@@ -9,8 +9,9 @@ const Trending = () => {
   const [content, setContent] = useState([]);
 
   const fetchTrending = async () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=${page}`
     );
 
     setContent(data.results);
