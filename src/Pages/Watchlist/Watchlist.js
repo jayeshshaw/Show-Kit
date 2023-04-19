@@ -21,11 +21,8 @@ const Watchlist = (props) => {
   const genreforURL = useGenre(selectedGenres);
   // console.log(selectedGenres);
 
-  const {Mylist, setMylist} = useContext(AppContext);
-
   const fetchMovies = async () => {
-    setContent(Mylist);
-    setNumOfPages(Mylist.total_pages);
+    setContent(props.Mylist);
   };
 
   useEffect(() => {
@@ -36,9 +33,8 @@ const Watchlist = (props) => {
 
   return (
     <div>
-      <span className="pageTitle">Discover Movies</span>
+      <span className="pageTitle">Your Watchlist</span>
       <Genres
-        type="movie"
         selectedGenres={selectedGenres}
         setSelectedGenres={setSelectedGenres}
         genres={genres}
