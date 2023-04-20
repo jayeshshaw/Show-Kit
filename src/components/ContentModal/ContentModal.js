@@ -64,7 +64,6 @@ export default function TransitionsModal( {Mylist, children,media_type, id }) {
     );
 
     setContent(data);
-    console.log(data);
   };
 
   const fetchVideo = async () => {
@@ -86,7 +85,7 @@ export default function TransitionsModal( {Mylist, children,media_type, id }) {
 
   let foundItem=false;
   Mylist.forEach(e => {
-    if(e.id==id)foundItem=true;
+    if(e.id===id)foundItem=true;
   });
 
   
@@ -167,7 +166,6 @@ export default function TransitionsModal( {Mylist, children,media_type, id }) {
                   target="__blank"
                   onClick={()=>{
                     setMylist(Mylist => [...Mylist, content]);
-                    console.log(content);
                   }}
                   >
                     Add to Watchlist
@@ -182,6 +180,7 @@ export default function TransitionsModal( {Mylist, children,media_type, id }) {
                   startIcon={<ListIcon />}
                   color="secondary"
                   target="__blank"
+                  
                   >
                     Remove from Watchlist
                     </Button>
